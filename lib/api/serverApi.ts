@@ -24,7 +24,7 @@ export async function FetchNotes(
       tag,
     },
     headers: {
-       Cookie: cookieStore.toString(),
+      Cookie: cookieStore.toString(),
     },
   });
   return response.data;
@@ -34,13 +34,13 @@ export async function fetchNoteById(Id: string): Promise<Note> {
   const cookieStore = await cookies();
   const response = await api.get<Note>(`/notes/${Id}`, {
     headers: {
-       Cookie: cookieStore.toString(),
+      Cookie: cookieStore.toString(),
     },
   });
   return response.data;
 }
 
-export async function getMe():Promise<User | null> {
+export async function getMe(): Promise<User | null> {
   try {
     const cookieStore = await cookies();
 
@@ -62,10 +62,10 @@ export async function checkSession() {
   const cookieStore = await cookies();
 
   try {
-    const apiRes = await api.get('auth/session', {
+    const apiRes = await api.get('auth/refresh', {
       headers: {
         Cookie: cookieStore.toString(), // передаємо всі куки як є —
-                                          // бекенд сам вирішить, який токен валідний
+        // бекенд сам вирішить, який токен валідний
       },
     });
 
