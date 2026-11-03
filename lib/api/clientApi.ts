@@ -62,12 +62,12 @@ export async function logout() {
 }
 
 export async function checkSession() {
-  const response = await api.get('/auth/refresh');
+  const response = await api.get('/auth/session');
   return response.data;
 }
 
 export async function getMe() {
-  const response = await api.get<User>('/users/me');
+  const response = await api.get<User>('/auth/me');
   return response.data;
 }
 

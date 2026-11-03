@@ -27,6 +27,7 @@ export const metadata: Metadata = {
 
 export default async function ProfilePage(){
   const user = await getMe();
+  console.log(user);
     return(
         <main className={css.mainContent}>
   <div className={css.profileCard}>
